@@ -11,6 +11,7 @@
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
         TextInput:
+            id: input_tela1
             hint_text: 'Digite um número'
             size_hint: 0.4, 0
             font_size: 40
@@ -38,6 +39,7 @@
             size_hint: 0.5, 0.2
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
         TextInput:
+            id: input_tela2
             hint_text: 'Digite um número'
             size_hint: 0.4, 0
             font_size: 40
@@ -63,7 +65,12 @@
             # Centralizadores
             size_hint: 0.5, 0.2
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
-            
+
+        Label:
+            text: "Primeiro número: " + root.ids.input_tela1.text
+
         Button:
             text: 'Voltar para a Tela inicial'
             on_release: app.root.current = 'tela_inicial'
+            size_hint: 0.4, 0
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
