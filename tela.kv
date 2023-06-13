@@ -2,7 +2,7 @@
     BoxLayout:
         orientation: 'vertical'
         Label:
-            text: 'Tela Inicial'
+            text: 'Tela 1'
             font_size: 40
             color: 1, 0, 1
             bold: True
@@ -11,16 +11,16 @@
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
         TextInput:
-            hint_text: '0'
-            text_size: self.size
+            hint_text: 'Digite um número'
+            size_hint: 0.4, 0
             font_size: 40
-            size_hint: 0.0, 0.0
-            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+            pos_hint: {"center_x": 0.5, "center_y": 0.} 
             halign: "center"
             valign: "bottom"
+            
 
         Button:
-            text: 'Ir para Tela Secundária'
+            text: 'Ir para Tela 2'
             on_release: app.root.current = 'tela_secundaria'
             size_hint: 0.4, 0
             pos_hint: {"center_x": 0.5, "center_y": 0.5} 
@@ -30,18 +30,39 @@
     BoxLayout:
         orientation: 'vertical'
         Label:
-            text: 'Tela Secundária'
+            text: 'Tela 2'
+            font_size: 40
+            color: 1, 0, 1
+            bold: True
+            # Centralizadores
+            size_hint: 0.5, 0.2
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        TextInput:
+            hint_text: 'Digite um número'
+            size_hint: 0.4, 0
+            font_size: 40
+            pos_hint: {"center_x": 0.5, "center_y": 0.} 
+            halign: "center"
+            valign: "bottom"
 
         Button:
-            text: 'Ir para a Terceira tela'
-            on_release: app.root.current = 'new_screen'   
+            text: 'Ir para Tela Final'
+            on_release: app.root.current = 'tela_final'
+            size_hint: 0.4, 0
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}   
 
 
-<NovaTela3>:
+<TelaFinal>:
     BoxLayout:
         orientation: 'vertical'
         Label:
-            text: 'Terceira tela'
+            text: 'Tela Final'
+            font_size: 40
+            color: 1, 0, 1
+            bold: True
+            # Centralizadores
+            size_hint: 0.5, 0.2
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
             
         Button:
             text: 'Voltar para a Tela inicial'

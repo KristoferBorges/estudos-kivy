@@ -15,7 +15,7 @@ class TelaSecundaria(Screen):
     pass
 
 
-class NovaTela3(Screen):
+class TelaFinal(Screen):
     pass
 
 
@@ -24,7 +24,7 @@ class MeuAplicativo(App):
         screen_manager = ScreenManager()
         screen_manager.add_widget(TelaInicial(name='tela_inicial'))
         screen_manager.add_widget(TelaSecundaria(name='tela_secundaria'))
-        screen_manager.add_widget(NovaTela3(name='new_screen'))
+        screen_manager.add_widget(TelaFinal(name='tela_final'))
         return screen_manager
 
 
