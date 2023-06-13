@@ -1,12 +1,17 @@
-GridLayout :
-    cols: 1
+<TelaInicial>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Tela Inicial'
+        Button:
+            text: 'Ir para Tela Secundária'
+            on_release: app.root.current = 'tela_secundaria'
 
-    Label:
-        id: titulo
-        text: "DOLAR ATUALIZADO"
-        font_size: 24
-        color: 0.2, 0.4, 0.6, 1
-    Button:
-        text: "Atualizar"
-        background_color: 0.8, 0.2, 0.4, 1
-        on_release: app.atualizar_texto(self)
+<TelaSecundaria>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Tela Secundária'
+        Button:
+            text: 'Voltar para Tela Inicial'
+            on_release: app.root.current = 'tela_inicial'

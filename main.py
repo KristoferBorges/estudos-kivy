@@ -1,12 +1,25 @@
 from kivy.app import App
-from kivy.uix.button import Button
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.lang import Builder
+
+GUI = Builder.load_file("tela.kv")
 
 
-class MyApp(App):
+class TelaInicial(Screen):
+    pass
+
+
+class TelaSecundaria(Screen):
+    pass
+
+
+class MeuAplicativo(App):
     def build(self):
-        button = Button(text='Hello World', font_size=60)
-        return button
+        screen_manager = ScreenManager()
+        screen_manager.add_widget(TelaInicial(name='tela_inicial'))
+        screen_manager.add_widget(TelaSecundaria(name='tela_secundaria'))
+        return screen_manager
 
 
 if __name__ == '__main__':
-    MyApp().run()
+    MeuAplicativo().run()
