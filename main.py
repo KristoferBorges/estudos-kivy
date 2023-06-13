@@ -8,11 +8,17 @@ GUI = Builder.load_file("tela.kv")
 
 
 class TelaInicial(Screen):
-    pass
+    numero_tela_inicial = ''
+
+    def armazenar_numero(self):
+        self.numero_tela_inicial = self.ids.input_tela1.text
 
 
 class TelaSecundaria(Screen):
-    pass
+    numero_tela_secundaria = ''
+
+    def armazenar_numero(self):
+        self.numero_tela_secundaria = self.ids.input_tela2.text
 
 
 class TelaFinal(Screen):

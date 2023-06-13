@@ -22,10 +22,11 @@
 
         Button:
             text: 'Ir para Tela 2'
-            on_release: app.root.current = 'tela_secundaria'
             size_hint: 0.4, 0
             pos_hint: {"center_x": 0.5, "center_y": 0.5} 
-        
+            on_release:
+                root.armazenar_numero()
+                app.root.current = 'tela_secundaria'
 
 <TelaSecundaria>:
     BoxLayout:
@@ -38,6 +39,7 @@
             # Centralizadores
             size_hint: 0.5, 0.2
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
         TextInput:
             id: input_tela2
             hint_text: 'Digite um número'
@@ -49,9 +51,11 @@
 
         Button:
             text: 'Ir para Tela Final'
-            on_release: app.root.current = 'tela_final'
             size_hint: 0.4, 0
             pos_hint: {"center_x": 0.5, "center_y": 0.5}   
+            on_release:
+                root.armazenar_numero()
+                app.root.current = 'tela_final'
 
 
 <TelaFinal>:
@@ -65,10 +69,10 @@
             # Centralizadores
             size_hint: 0.5, 0.2
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
-
         Label:
-            text: "Primeiro número: " + root.ids.input_tela1.text
-
+            text: "Número da Tela 1: " + root.ids.input_tela_inicial.text
+        Label:
+            text: "Número da Tela 2: " + root.ids.input_tela_secundaria.text
         Button:
             text: 'Voltar para a Tela inicial'
             on_release: app.root.current = 'tela_inicial'
