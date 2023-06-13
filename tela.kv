@@ -9,13 +9,16 @@
             # Centralizadores
             size_hint: 0.5, 0.2
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        TextInput:
+            hint_text: 'Escreva um número aqui'
+            size_hint: 0.4, 0
+            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
         Button:
             text: 'Ir para Tela Secundária'
             on_release: app.root.current = 'tela_secundaria'
-        TextInput:
-            hint_text: 'Insira o texto aqui'
-            size_hint: 0.5, 0.2
-            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: 0.4, 0
+            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+        
 
 <TelaSecundaria>:
     BoxLayout:
@@ -24,8 +27,9 @@
             text: 'Tela Secundária'
         Button:
             text: 'Ir para a Terceira tela'
-            on_release: app.root.current = 'new_screen'
-            
+            on_release: app.root.current = 'new_screen'   
+
+
 <NovaTela3>:
     BoxLayout:
         orientation: 'vertical'
