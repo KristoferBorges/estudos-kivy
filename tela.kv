@@ -52,7 +52,7 @@
         Button:
             text: 'Ir para Tela Final'
             size_hint: 0.4, 0
-            pos_hint: {"center_x": 0.5, "center_y": 0.5}   
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
             on_release:
                 root.armazenar_numero()
                 app.root.current = 'tela_final'
@@ -63,16 +63,32 @@
         orientation: 'vertical'
         Label:
             text: 'Tela Final'
-            font_size: 40
+            font_size: 20
             color: 1, 0, 1
             bold: True
-            # Centralizadores
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 1.0}
+
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            id: label_tela_inicial
+            text: ''
+            font_size: 20
+            color: 0, 1, 0, 1
             size_hint: 0.5, 0.2
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
         Label:
-            text: "Número da Tela 1: " + root.ids.input_tela_inicial.text
-        Label:
-            text: "Número da Tela 2: " + root.ids.input_tela_secundaria.text
+            id: label_tela_secundaria
+            text: ''
+            font_size: 20
+            color: 0, 1, 0, 1
+            size_hint: 0.5, 0.2
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    BoxLayout:
+        orientation: 'vertical'
         Button:
             text: 'Voltar para a Tela inicial'
             on_release: app.root.current = 'tela_inicial'

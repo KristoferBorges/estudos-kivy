@@ -22,7 +22,11 @@ class TelaSecundaria(Screen):
 
 
 class TelaFinal(Screen):
-    pass
+    def on_pre_enter(self):
+        numero_tela_inicial = self.manager.get_screen('tela_inicial').numero_tela_inicial
+        numero_tela_secundaria = self.manager.get_screen('tela_secundaria').numero_tela_secundaria
+        self.ids.label_tela_inicial.text = "Número da Tela Inicial: " + numero_tela_inicial
+        self.ids.label_tela_secundaria.text = "Número da Tela Secundária: " + numero_tela_secundaria
 
 
 class MeuAplicativo(App):
