@@ -9,10 +9,16 @@
             # Centralizadores
             size_hint: 0.5, 0.2
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
         TextInput:
-            hint_text: 'Escreva um número aqui'
-            size_hint: 0.4, 0
+            hint_text: '0'
+            text_size: self.size
+            font_size: 40
+            size_hint: 0.0, 0.0
             pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+            halign: "center"
+            valign: "bottom"
+
         Button:
             text: 'Ir para Tela Secundária'
             on_release: app.root.current = 'tela_secundaria'
@@ -25,6 +31,7 @@
         orientation: 'vertical'
         Label:
             text: 'Tela Secundária'
+
         Button:
             text: 'Ir para a Terceira tela'
             on_release: app.root.current = 'new_screen'   
@@ -35,6 +42,7 @@
         orientation: 'vertical'
         Label:
             text: 'Terceira tela'
+            
         Button:
             text: 'Voltar para a Tela inicial'
             on_release: app.root.current = 'tela_inicial'
