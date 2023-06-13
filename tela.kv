@@ -13,5 +13,14 @@
         Label:
             text: 'Tela Secundária'
         Button:
-            text: 'Voltar para Tela Inicial'
+            text: 'Ir para a Terceira tela'
+            on_release: app.root.current = 'new_screen'
+            
+<NovaTela3>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Terceira tela'
+        Button:
+            text: 'Voltar para a Tela inicial'
             on_release: app.root.current = 'tela_inicial'
