@@ -1,5 +1,13 @@
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition
 
+<Button>:
+    font_size: 26
+    font_name: 'Verdana'
+    border: (2, 2, 2, 2)
+    border_width: 2
+    border_color: 1, 0, 0, 1
+    border_radius: [30]
+
 <ScreenManager>:
     transition: FadeTransition()
     TelaDeEscolha:
@@ -9,6 +17,8 @@
     TelaBrinquedos:
         id: brinquedos
         name: 'brinquedos'
+
+    Tela
 
 <TelaDeEscolha>:
     GridLayout:
