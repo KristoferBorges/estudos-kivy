@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
+from kivy.lang import Builder
 
 
 class MyGridLayout(GridLayout):
@@ -8,7 +9,7 @@ class MyGridLayout(GridLayout):
 
 class MyApp(App):
     def build(self):
-        return MyGridLayout()
+        return Builder.load_file('mylayout.kv')
 
 
 if __name__ == '__main__':
