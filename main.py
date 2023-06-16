@@ -1,14 +1,8 @@
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.button import Button
 
 
-class Adm(ScreenManager):
-    pass
-
-
-class TelaDeRegistro(Screen):
+class TelaDeEscolha(Screen):
     pass
 
 
@@ -18,7 +12,8 @@ class TelaBrinquedos(Screen):
 
 class Tela(App):
     def build(self):
-        return Adm()
+        adm = ScreenManager()
+        return adm
 
 
 if __name__ == '__main__':

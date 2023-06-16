@@ -1,23 +1,42 @@
-<Adm>:
-    TelaDeRegistro:
-        id: registro
-        name: 'registro'
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
 
-<TelaDeRegistro>:
+<ScreenManager>:
+    transition: FadeTransition()
+    TelaDeEscolha:
+        id: inicio
+        name: 'inicio'
+
+    TelaBrinquedos:
+        id: brinquedos
+        name: 'brinquedos'
+
+<TelaDeEscolha>:
     GridLayout:
         cols: 1
-        spacing: [6]
-
+        spacing: 6
         Button:
             text: 'BRINQUEDOS'
-            on_press: print("ouch! More gently please")
-            on_release: print("ahhh")
+            font_size: 26
+            font_name: 'Verdana'
+            on_release:
+                root.manager.current = 'brinquedos'
         Button:
             text: 'COMIDAS'
+            font_size: 26
+            font_name: 'Verdana'
         Button:
             text: 'ANIMAIS'
+            font_size: 26
+            font_name: 'Verdana'
         Button:
             text: 'JOGOS'
+            font_size: 26
+            font_name: 'Verdana'
 
-
-# Telas
+<TelaBrinquedos>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: 'Conteúdo da tela de brinquedos'
+            font_size: 20
+            font_name: 'Verdana'
