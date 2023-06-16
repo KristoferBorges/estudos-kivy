@@ -1,16 +1,25 @@
 from kivy.app import App
+from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.gridlayout import GridLayout
-from kivy.lang import Builder
+from kivy.uix.button import Button
 
 
-class MyGridLayout(GridLayout):
+class Adm(ScreenManager):
     pass
 
 
-class MyApp(App):
+class TelaDeRegistro(Screen):
+    pass
+
+
+class TelaBrinquedos(Screen):
+    pass
+
+
+class Tela(App):
     def build(self):
-        return Builder.load_file('mylayout.kv')
+        return Adm()
 
 
 if __name__ == '__main__':
-    MyApp().run()
+    Tela().run()
