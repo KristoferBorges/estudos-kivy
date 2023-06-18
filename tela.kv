@@ -66,13 +66,29 @@
             text: 'Conteúdo da tela de brinquedos'
             font_size: 20
             font_name: 'Verdana'
-        Button:
-            text: 'VOLTAR'
-            font_size: 26
-            font_name: 'Verdana'
-            size_hint: (0.5, 0.1)
-            on_release:
-                root.manager.current = 'inicio'
+        TextInput:
+            id: input_brinquedos
+            name: 'brinquedos'
+            hint_text: 'Digite algo...'
+            multiline: False
+            size_hint: (0.5, None)
+            height: '48dp'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (0.2, 0.1)
+            Button:
+                text: 'VOLTAR'
+                font_size: 26
+                font_name: 'Verdana'
+                on_release:
+                    root.manager.current = 'inicio'
+            Button:
+                text: 'ENVIAR'
+                font_size: 26
+                font_name: 'Verdana'
+                on_release:
+                    root.enviar_texto(input_brinquedos.text)
+
 
 <TelaComidas>:
     GridLayout:
@@ -81,13 +97,24 @@
             text: 'Conteúdo da tela de comidas'
             font_size: 20
             font_name: 'Verdana'
-        Button:
-            text: 'VOLTAR'
-            font_size: 26
-            font_name: 'Verdana'
-            size_hint: (0.5, 0.1)
-            on_release:
-                root.manager.current = 'inicio'
+        TextInput:
+            hint_text: 'Digite algo...'
+            multiline: False
+            size_hint: (0.5, None)
+            height: '48dp'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (0.2, 0.1)
+            Button:
+                text: 'VOLTAR'
+                font_size: 26
+                font_name: 'Verdana'
+                on_release:
+                    root.manager.current = 'inicio'
+            Button:
+                text: 'ENVIAR'
+                font_size: 26
+                font_name: 'Verdana'
 
 <TelaAnimais>:
     GridLayout:
@@ -96,13 +123,24 @@
             text: 'Conteúdo da tela de animais'
             font_size: 20
             font_name: 'Verdana'
-        Button:
-            text: 'VOLTAR'
-            font_size: 26
-            font_name: 'Verdana'
-            size_hint: (0.5, 0.1)
-            on_release:
-                root.manager.current = 'inicio'
+        TextInput:
+            hint_text: 'Digite algo...'
+            multiline: False
+            size_hint: (0.5, None)
+            height: '48dp'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (0.2, 0.1)
+            Button:
+                text: 'VOLTAR'
+                font_size: 26
+                font_name: 'Verdana'
+                on_release:
+                    root.manager.current = 'inicio'
+            Button:
+                text: 'ENVIAR'
+                font_size: 26
+                font_name: 'Verdana'
 
 <TelaJogos>:
     GridLayout:
@@ -111,10 +149,21 @@
             text: 'Conteúdo da tela de jogos'
             font_size: 20
             font_name: 'Verdana'
-        Button:
-            text: 'VOLTAR'
-            font_size: 26
-            font_name: 'Verdana'
-            size_hint: (0.5, 0.1)
-            on_release:
-                root.manager.current = 'inicio'
+        TextInput:
+            hint_text: 'Digite algo...'
+            multiline: False
+            size_hint: (0.5, None)
+            height: '48dp'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (0.2, 0.1)
+            Button:
+                text: 'VOLTAR'
+                font_size: 26
+                font_name: 'Verdana'
+                on_release:
+                    root.manager.current = 'inicio'
+            Button:
+                text: 'ENVIAR'
+                font_size: 26
+                font_name: 'Verdana'

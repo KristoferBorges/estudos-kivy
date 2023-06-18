@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.core.window import Window
+from kivy.uix.textinput import TextInput
 import platform
 
 # Verifica se o usuário está usando Windows
@@ -15,7 +16,9 @@ class TelaDeEscolha(Screen):
 
 
 class TelaBrinquedos(Screen):
-    pass
+
+    def enviar_texto(self, texto):
+        print(texto)
 
 
 class TelaComidas(Screen):
