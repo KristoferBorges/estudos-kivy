@@ -1,5 +1,13 @@
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.core.window import Window
+import platform
+
+# Verifica se o usuário está usando Windows
+if platform.system() == "Windows":
+    sistema_windows = True
+else:
+    sistema_windows = False
 
 
 class TelaDeEscolha(Screen):
@@ -24,6 +32,8 @@ class TelaJogos(Screen):
 
 class Tela(App):
     def build(self):
+        if sistema_windows:
+            Window.size = (600, 500)
         self.title = 'IG - ProgramaExecutável'
         adm = ScreenManager()
         return adm
