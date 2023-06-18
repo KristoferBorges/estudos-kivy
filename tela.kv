@@ -18,7 +18,17 @@
         id: brinquedos
         name: 'brinquedos'
 
-    Tela
+    TelaComidas:
+        id: comidas
+        name: 'comidas'
+
+    TelaAnimais:
+        id: animais
+        name: 'animais'
+
+    TelaJogos:
+        id: jogos
+        name: 'jogos'
 
 <TelaDeEscolha>:
     GridLayout:
@@ -34,14 +44,20 @@
             text: 'COMIDAS'
             font_size: 26
             font_name: 'Verdana'
+            on_release:
+                root.manager.current = 'comidas'
         Button:
             text: 'ANIMAIS'
             font_size: 26
             font_name: 'Verdana'
+            on_release:
+                root.manager.current = 'animais'
         Button:
             text: 'JOGOS'
             font_size: 26
             font_name: 'Verdana'
+            on_release:
+                root.manager.current = 'jogos'
 
 <TelaBrinquedos>:
     GridLayout:
@@ -50,3 +66,55 @@
             text: 'Conteúdo da tela de brinquedos'
             font_size: 20
             font_name: 'Verdana'
+        Button:
+            text: 'VOLTAR'
+            font_size: 26
+            font_name: 'Verdana'
+            size_hint: (0.5, 0.2)
+            on_release:
+                root.manager.current = 'inicio'
+
+<TelaComidas>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: 'Conteúdo da tela de comidas'
+            font_size: 20
+            font_name: 'Verdana'
+        Button:
+            text: 'VOLTAR'
+            font_size: 26
+            font_name: 'Verdana'
+            size_hint: (0.5, 0.2)
+            on_release:
+                root.manager.current = 'inicio'
+
+<TelaAnimais>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: 'Conteúdo da tela de animais'
+            font_size: 20
+            font_name: 'Verdana'
+        Button:
+            text: 'VOLTAR'
+            font_size: 26
+            font_name: 'Verdana'
+            size_hint: (0.5, 0.2)
+            on_release:
+                root.manager.current = 'inicio'
+
+<TelaJogos>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: 'Conteúdo da tela de jogos'
+            font_size: 20
+            font_name: 'Verdana'
+        Button:
+            text: 'VOLTAR'
+            font_size: 26
+            font_name: 'Verdana'
+            size_hint: (0.5, 0.2)
+            on_release:
+                root.manager.current = 'inicio'

@@ -10,8 +10,21 @@ class TelaBrinquedos(Screen):
     pass
 
 
+class TelaComidas(Screen):
+    pass
+
+
+class TelaAnimais(Screen):
+    pass
+
+
+class TelaJogos(Screen):
+    pass
+
+
 class Tela(App):
     def build(self):
+        self.title = 'IG - ProgramaExecutável'
         adm = ScreenManager()
         return adm
 
