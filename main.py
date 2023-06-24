@@ -16,9 +16,7 @@ class TelaDeEscolha(Screen):
 
 
 class NovosRegistros(Screen):
-
-    def enviar_texto(self, texto):
-        print(texto)
+    pass
 
 
 class LimparDados(Screen):
@@ -32,8 +30,10 @@ class ConsultaDeListas(Screen):
 class CriarBackup(Screen):
     pass
 
+
 class FecharPrograma(Screen):
     pass
+
 
 class Tela(App):
     def build(self):

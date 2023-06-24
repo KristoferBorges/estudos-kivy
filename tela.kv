@@ -11,8 +11,8 @@
 <ScreenManager>:
     transition: FadeTransition()
     TelaDeEscolha:
-        id: inicio
-        name: 'inicio'
+        id: menu_1
+        name: 'menu_1'
 
     NovosRegistros:
         id: registros
@@ -71,7 +71,7 @@
             font_size: 26
             color: 1, 0, 0, 1
             font_name: 'Verdana'
-            size_hint: (0.0, 0.5)
+            size_hint: (0.0, 0.9)
             on_release:
                 app.stop()
 
@@ -95,7 +95,7 @@
                 font_size: 26
                 font_name: 'Verdana'
                 on_release:
-                    root.manager.current = 'inicio'
+                    root.manager.current = 'menu_1'
             Button:
                 text: 'ENVIAR'
                 font_size: 26
@@ -122,7 +122,7 @@
                 font_size: 26
                 font_name: 'Verdana'
                 on_release:
-                    root.manager.current = 'inicio'
+                    root.manager.current = 'menu_1'
             Button:
                 text: 'ENVIAR'
                 font_size: 26
@@ -148,7 +148,7 @@
                 font_size: 26
                 font_name: 'Verdana'
                 on_release:
-                    root.manager.current = 'inicio'
+                    root.manager.current = 'menu_1'
             Button:
                 text: 'ENVIAR'
                 font_size: 26
@@ -174,7 +174,7 @@
                 font_size: 26
                 font_name: 'Verdana'
                 on_release:
-                    root.manager.current = 'inicio'
+                    root.manager.current = 'menu_1'
             Button:
                 text: 'ENVIAR'
                 font_size: 26
