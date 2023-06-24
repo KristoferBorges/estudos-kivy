@@ -11,27 +11,55 @@ else:
     sistema_windows = False
 
 
-class TelaDeEscolha(Screen):
+class MenuPrincipal(Screen):
+    """
+    Menu com as opções principais, NovosRegistros, LimparDados, ConsultaDeListas,
+    Criar Backup e FecharPrograma.
+    """
     pass
 
 
 class NovosRegistros(Screen):
+    """
+    Opção para inserir novos dados, porém se faz necessário escolher as
+    lista que deseja inserir os dados,
+    poderá escolher entre: RD Marcas, Perfumaria e Dermo.
+    """
     pass
 
 
 class LimparDados(Screen):
+    """
+    Opção para limpar dos dados, porém se faz necessário escolher as
+    lista que deseja limpar os dados,
+    poderá escolher entre: RD Marcas, Perfumaria, Dermo ou todas ao mesmo tempo.
+    """
     pass
 
 
 class ConsultaDeListas(Screen):
+    """
+    Opção para consultar os dados existentes, porém se faz necessário escolher as
+    lista que deseja consultar,
+    poderá escolher entre: RD Marcas, Perfumaria, Dermo ou todas ao mesmo tempo.
+    """
     pass
 
 
 class CriarBackup(Screen):
+    """
+    Opção para fazer backup dos dados existentes, porém se faz necessário escolher as
+    lista que deseja fazer o backup,
+    poderá escolher entre: RD Marcas, Perfumaria, Dermo ou todas ao mesmo tempo.
+    """
     pass
 
 
 class FecharPrograma(Screen):
+    """
+    Opção simples para fechar o programa com segurança sem medo de perder os
+    dados ou interromper no meio do processo.
+    """
     pass
 
 
