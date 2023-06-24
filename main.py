@@ -15,29 +15,31 @@ class TelaDeEscolha(Screen):
     pass
 
 
-class TelaBrinquedos(Screen):
+class NovosRegistros(Screen):
 
     def enviar_texto(self, texto):
         print(texto)
 
 
-class TelaComidas(Screen):
+class LimparDados(Screen):
     pass
 
 
-class TelaAnimais(Screen):
+class ConsultaDeListas(Screen):
     pass
 
 
-class TelaJogos(Screen):
+class CriarBackup(Screen):
     pass
 
+class FecharPrograma(Screen):
+    pass
 
 class Tela(App):
     def build(self):
         if sistema_windows:
             Window.size = (600, 500)
-        self.title = 'IG - ProgramaExecutável'
+        self.title = 'ConsultaDeMetas_v2.0'
         adm = ScreenManager()
         return adm
 

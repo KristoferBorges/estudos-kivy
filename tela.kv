@@ -14,87 +14,72 @@
         id: inicio
         name: 'inicio'
 
-    TelaBrinquedos:
-        id: brinquedos
-        name: 'brinquedos'
+    NovosRegistros:
+        id: registros
+        name: 'registros'
 
-    TelaComidas:
-        id: comidas
-        name: 'comidas'
+    LimparDados:
+        id: limpardados
+        name: 'limpardados'
 
-    TelaAnimais:
-        id: animais
-        name: 'animais'
+    ConsultaDeListas:
+        id: consultarlistas
+        name: 'consultarlistas'
 
-    TelaJogos:
-        id: jogos
-        name: 'jogos'
+    CriarBackup:
+        id: criarbackup
+        name: 'criarbackup'
+
+    FecharPrograma:
+        id: FecharPrograma
+        name: 'fecharprograma'
 
 <TelaDeEscolha>:
     GridLayout:
         cols: 1
         spacing: 6
         Button:
-            text: 'BRINQUEDOS'
+            text: 'NOVOS REGISTROS'
             font_size: 26
+            color: 1, 1, 0, 1
             font_name: 'Verdana'
             on_release:
-                root.manager.current = 'brinquedos'
+                root.manager.current = 'registros'
         Button:
-            text: 'COMIDAS'
+            text: 'LIMPAR DADOS'
             font_size: 26
+            color: 1, 1, 0, 1
             font_name: 'Verdana'
             on_release:
-                root.manager.current = 'comidas'
+                root.manager.current = 'limpardados'
         Button:
-            text: 'ANIMAIS'
+            text: 'CONSULTAR LISTAS'
             font_size: 26
+            color: 1, 1, 0, 1
             font_name: 'Verdana'
             on_release:
-                root.manager.current = 'animais'
+                root.manager.current = 'consultarlistas'
         Button:
-            text: 'JOGOS'
+            text: 'CRIAR BACKUP'
             font_size: 26
+            color: 1, 1, 0, 1
             font_name: 'Verdana'
             on_release:
-                root.manager.current = 'jogos'
+                root.manager.current = 'criarbackup'
+        Button:
+            text: 'SAIR'
+            font_size: 26
+            color: 1, 0, 0, 1
+            font_name: 'Verdana'
+            size_hint: (0.0, 0.5)
+            on_release:
+                app.stop()
 
-<TelaBrinquedos>:
+<NovosRegistros>:
     GridLayout:
         cols: 1
         Label:
-            text: 'Conteúdo da tela de brinquedos'
-            font_size: 20
-            font_name: 'Verdana'
-        TextInput:
-            id: input_brinquedos
-            name: 'brinquedos'
-            hint_text: 'Digite algo...'
-            multiline: False
-            size_hint: (0.5, None)
-            height: '48dp'
-        BoxLayout:
-            orientation: 'horizontal'
-            size_hint: (0.2, 0.1)
-            Button:
-                text: 'VOLTAR'
-                font_size: 26
-                font_name: 'Verdana'
-                on_release:
-                    root.manager.current = 'inicio'
-            Button:
-                text: 'ENVIAR'
-                font_size: 26
-                font_name: 'Verdana'
-                on_release:
-                    root.enviar_texto(input_brinquedos.text)
-
-
-<TelaComidas>:
-    GridLayout:
-        cols: 1
-        Label:
-            text: 'Conteúdo da tela de comidas'
+            text: 'Conteúdo da tela de registros'
             font_size: 20
             font_name: 'Verdana'
         TextInput:
@@ -116,11 +101,12 @@
                 font_size: 26
                 font_name: 'Verdana'
 
-<TelaAnimais>:
+
+<LimparDados>:
     GridLayout:
         cols: 1
         Label:
-            text: 'Conteúdo da tela de animais'
+            text: 'Conteúdo da tela de LimparDados'
             font_size: 20
             font_name: 'Verdana'
         TextInput:
@@ -142,11 +128,37 @@
                 font_size: 26
                 font_name: 'Verdana'
 
-<TelaJogos>:
+<ConsultaDeListas>:
     GridLayout:
         cols: 1
         Label:
-            text: 'Conteúdo da tela de jogos'
+            text: 'Conteúdo da tela de Consultas'
+            font_size: 20
+            font_name: 'Verdana'
+        TextInput:
+            hint_text: 'Digite algo...'
+            multiline: False
+            size_hint: (0.5, None)
+            height: '48dp'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (0.2, 0.1)
+            Button:
+                text: 'VOLTAR'
+                font_size: 26
+                font_name: 'Verdana'
+                on_release:
+                    root.manager.current = 'inicio'
+            Button:
+                text: 'ENVIAR'
+                font_size: 26
+                font_name: 'Verdana'
+
+<CriarBackup>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: 'Conteúdo da tela de backup'
             font_size: 20
             font_name: 'Verdana'
         TextInput:
