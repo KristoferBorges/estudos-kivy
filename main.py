@@ -63,10 +63,6 @@ class FecharPrograma(Screen):
     pass
 
 
-class MenuRegistros(Screen):
-    pass
-
-
 class Tela(App):
     def build(self):
         if sistema_windows:
