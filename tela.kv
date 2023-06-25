@@ -204,25 +204,41 @@
 <CriarBackup>:
     GridLayout:
         cols: 1
+        spacing: 6
         Label:
-            text: 'Conteúdo da tela de backup'
-            font_size: 20
-            font_name: 'Verdana'
-        TextInput:
-            hint_text: 'Digite algo...'
-            multiline: False
-            size_hint: (0.5, None)
-            height: '48dp'
-        BoxLayout:
+            text: 'CRIAR BACKUP'
+            font_size: 26
             orientation: 'horizontal'
-            size_hint: (0.2, 0.1)
-            Button:
-                text: 'VOLTAR'
-                font_size: 26
-                font_name: 'Verdana'
-                on_release:
-                    root.manager.current = 'menu_1'
-            Button:
-                text: 'ENVIAR'
-                font_size: 26
-                font_name: 'Verdana'
+            size_hint: (0.5, 0.5)
+        Button:
+            text: 'RD MARCAS'
+            font_size: 26
+            color: 1, 1, 0, 1
+            font_name: 'Verdana'
+
+        Button:
+            text: 'PERFUMARIA'
+            font_size: 26
+            color: 1, 1, 0, 1
+            font_name: 'Verdana'
+
+        Button:
+            text: 'DERMO'
+            font_size: 26
+            color: 1, 1, 0, 1
+            font_name: 'Verdana'
+            size_hint: (0.0, 0.9)
+
+        Button:
+            text: 'TODAS AS LISTAS'
+            font_size: 26
+            color: 1, 1, 0, 1
+            font_name: 'Verdana'
+            size_hint: (0.0, 0.9)
+
+        Button:
+            text: 'VOLTAR'
+            font_size: 26
+            font_name: 'Verdana'
+            on_release:
+                root.manager.current = 'menu_1'
