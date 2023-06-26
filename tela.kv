@@ -23,6 +23,10 @@
         id: registrosrdmarcas
         name: 'registrosrdmarcas'
 
+    RegistrosPerfumaria:
+        id: registrosperfumaria
+        name: 'registrosperfumaria'
+
     LimparDados:
         id: limpardados
         name: 'limpardados'
@@ -44,6 +48,8 @@
     GridLayout:
         cols: 1
         spacing: 6
+        padding: 10
+
         Button:
             text: 'NOVOS REGISTROS'
             font_size: 26
@@ -82,10 +88,13 @@
                 app.stop()
 
 
+# Opções do Menu principal
 <NovosRegistros>:
     GridLayout:
         cols: 1
         spacing: 6
+        padding: 10
+
         Label:
             text: 'NOVOS REGISTROS'
             font_size: 26
@@ -104,6 +113,8 @@
             font_size: 26
             color: 1, 1, 0, 1
             font_name: 'Verdana'
+            on_release:
+                root.manager.current = 'registrosperfumaria'
 
         Button:
             text: 'DERMO'
@@ -124,13 +135,14 @@
     BoxLayout:
         orientation: 'vertical'
         spacing: 10
+        padding: 10
 
         Label:
-            text: 'Preencha os campos'
+            text: 'Preencha os campos (RD-MARCAS)'
             font_size: 20
+            color: 1, 1, 0, 1
             size_hint: (1, None)
             text_size: (None, None)
-
 
         BoxLayout:
             orientation: 'horizontal'
@@ -142,8 +154,8 @@
                 text: 'Data (00/00/0000)'
 
             TextInput:
+                id: data_input
                 size_hint: (0.7, 1)
-                input_filter: 'int'
                 multiline: False
 
         BoxLayout:
@@ -156,9 +168,11 @@
                 text: 'Meta (Dia)'
 
             TextInput:
+                id: meta_input
                 size_hint: (0.7, 1)
                 input_filter: 'int'
                 multiline: False
+
         BoxLayout:
             orientation: 'horizontal'
             size_hint: (1, None)
@@ -169,15 +183,119 @@
                 text: 'Vendas (Dia)'
 
             TextInput:
+                id: venda_input
                 size_hint: (0.7, 1)
                 input_filter: 'int'
                 multiline: False
 
+        BoxLayout:
+            orientation: 'horizontal'
+            Widget:
+                width: self.parent.width - (button1.width + button2.width)
+
+            Button:
+                id: button1
+                text: 'VOLTAR'
+                font_size: 26
+                font_name: 'Verdana'
+                size_hint: (0.5, 0.2)
+
+                on_release:
+                    root.manager.current = 'registros'
+            Button:
+                id: button2
+                text: 'FINALIZAR'
+                font_size: 26
+                font_name: 'Verdana'
+                size_hint: (0.7, 0.2)
+
+<RegistrosPerfumaria>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+
+        Label:
+            text: 'Preencha os campos (PERFUMARIA)'
+            font_size: 20
+            color: 1, 1, 0, 1
+            size_hint: (1, None)
+            text_size: (None, None)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Data (00/00/0000)'
+
+            TextInput:
+                id: data_input
+                size_hint: (0.7, 1)
+                multiline: False
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Meta (Dia)'
+
+            TextInput:
+                id: meta_input
+                size_hint: (0.7, 1)
+                input_filter: 'int'
+                multiline: False
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Vendas (Dia)'
+
+            TextInput:
+                id: venda_input
+                size_hint: (0.7, 1)
+                input_filter: 'int'
+                multiline: False
+
+        BoxLayout:
+            orientation: 'horizontal'
+            Widget:
+                width: self.parent.width - (button1.width + button2.width)
+
+            Button:
+                id: button1
+                text: 'VOLTAR'
+                font_size: 26
+                font_name: 'Verdana'
+                size_hint: (0.5, 0.2)
+
+                on_release:
+                    root.manager.current = 'registros'
+            Button:
+                id: button2
+                text: 'FINALIZAR'
+                font_size: 26
+                font_name: 'Verdana'
+                size_hint: (0.7, 0.2)
+
+
+# Fim das opções do Menu principal
 
 <LimparDados>:
     GridLayout:
         cols: 1
         spacing: 6
+        padding: 10
+
         Label:
             text: 'LIMPAR LISTAS'
             font_size: 26
@@ -221,6 +339,8 @@
     GridLayout:
         cols: 1
         spacing: 6
+        padding: 10
+
         Label:
             text: 'CONSULTAR LISTAS'
             font_size: 26
@@ -264,6 +384,8 @@
     GridLayout:
         cols: 1
         spacing: 6
+        padding: 10
+
         Label:
             text: 'CRIAR BACKUP'
             font_size: 26

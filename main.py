@@ -34,6 +34,12 @@ class RegistrosRDMarcas(Screen):
     pass
 
 
+class RegistrosPerfumaria(Screen):
+    """
+    """
+    pass
+
+
 class LimparDados(Screen):
     """
     Opção para limpar dos dados, porém se faz necessário escolher as
@@ -76,6 +82,10 @@ class Tela(App):
         self.title = 'ConsultaDeMetas_v2.0'
         adm = ScreenManager()
         return adm
+
+    def pega_input_rdmarcas(self):
+        data = self.root.ids.data_input.text
+        print(data)
 
 
 if __name__ == '__main__':
