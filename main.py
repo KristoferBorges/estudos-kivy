@@ -28,6 +28,12 @@ class NovosRegistros(Screen):
     pass
 
 
+class RegistrosRDMarcas(Screen):
+    """
+    """
+    pass
+
+
 class LimparDados(Screen):
     """
     Opção para limpar dos dados, porém se faz necessário escolher as

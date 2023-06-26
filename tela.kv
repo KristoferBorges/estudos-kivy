@@ -19,6 +19,10 @@
         id: registros
         name: 'registros'
 
+    RegistrosRDMarcas:
+        id: registrosrdmarcas
+        name: 'registrosrdmarcas'
+
     LimparDados:
         id: limpardados
         name: 'limpardados'
@@ -92,6 +96,8 @@
             font_size: 26
             color: 1, 1, 0, 1
             font_name: 'Verdana'
+            on_release:
+                root.manager.current = 'registrosrdmarcas'
 
         Button:
             text: 'PERFUMARIA'
@@ -113,6 +119,59 @@
             on_release:
                 root.manager.current = 'menu_1'
 
+
+<RegistrosRDMarcas>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+
+        Label:
+            text: 'Preencha os campos'
+            font_size: 20
+            size_hint: (1, None)
+            text_size: (None, None)
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Data (00/00/0000)'
+
+            TextInput:
+                size_hint: (0.7, 1)
+                input_filter: 'int'
+                multiline: False
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Meta (Dia)'
+
+            TextInput:
+                size_hint: (0.7, 1)
+                input_filter: 'int'
+                multiline: False
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Vendas (Dia)'
+
+            TextInput:
+                size_hint: (0.7, 1)
+                input_filter: 'int'
+                multiline: False
 
 
 <LimparDados>:
