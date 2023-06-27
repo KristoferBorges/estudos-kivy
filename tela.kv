@@ -1,8 +1,7 @@
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition
 
 <Button>:
-    font_size: 26
-    font_name: 'Verdana'
+    font_size:
     border: (2, 2, 2, 2)
     border_width: 2
     border_color: 1, 0, 0, 1
@@ -54,35 +53,34 @@
             text: 'NOVOS REGISTROS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'registros'
+
         Button:
             text: 'LIMPAR DADOS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'limpardados'
+
         Button:
             text: 'CONSULTAR LISTAS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'consultarlistas'
+
         Button:
             text: 'CRIAR BACKUP'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'criarbackup'
+
         Button:
             text: 'SAIR'
             font_size: 26
             color: 1, 0, 0, 1
-            font_name: 'Verdana'
             size_hint: (0.0, 0.9)
             on_release:
                 app.stop()
@@ -100,11 +98,11 @@
             font_size: 26
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
+
         Button:
             text: 'RD MARCAS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'registrosrdmarcas'
 
@@ -112,7 +110,6 @@
             text: 'PERFUMARIA'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'registrosperfumaria'
 
@@ -120,13 +117,11 @@
             text: 'DERMO'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             size_hint: (0.0, 0.9)
 
         Button:
             text: 'VOLTAR'
             font_size: 26
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'menu_1'
 
@@ -196,17 +191,14 @@
             Button:
                 id: button1
                 text: 'VOLTAR'
-                font_size: 26
-                font_name: 'Verdana'
+                font_size: 19
                 size_hint: (0.5, 0.2)
-
                 on_release:
                     root.manager.current = 'registros'
             Button:
                 id: button2
                 text: 'FINALIZAR'
-                font_size: 26
-                font_name: 'Verdana'
+                font_size: 19
                 size_hint: (0.7, 0.2)
 
 <RegistrosPerfumaria>:
@@ -275,16 +267,15 @@
                 id: button1
                 text: 'VOLTAR'
                 font_size: 26
-                font_name: 'Verdana'
                 size_hint: (0.5, 0.2)
-
                 on_release:
                     root.manager.current = 'registros'
+
             Button:
                 id: button2
                 text: 'FINALIZAR'
                 font_size: 26
-                font_name: 'Verdana'
+
                 size_hint: (0.7, 0.2)
 
 
@@ -301,36 +292,32 @@
             font_size: 26
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
+
         Button:
             text: 'RD MARCAS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
 
         Button:
             text: 'PERFUMARIA'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
 
         Button:
             text: 'DERMO'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             size_hint: (0.0, 0.9)
 
         Button:
             text: 'TODAS AS LISTAS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             size_hint: (0.0, 0.9)
 
         Button:
             text: 'VOLTAR'
             font_size: 26
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'menu_1'
 
@@ -346,36 +333,32 @@
             font_size: 26
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
+
         Button:
             text: 'RD MARCAS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
 
         Button:
             text: 'PERFUMARIA'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
 
         Button:
             text: 'DERMO'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             size_hint: (0.0, 0.9)
 
         Button:
             text: 'TODAS AS LISTAS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             size_hint: (0.0, 0.9)
 
         Button:
             text: 'VOLTAR'
             font_size: 26
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'menu_1'
 
@@ -391,35 +374,31 @@
             font_size: 26
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
+
         Button:
             text: 'RD MARCAS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
 
         Button:
             text: 'PERFUMARIA'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
 
         Button:
             text: 'DERMO'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             size_hint: (0.0, 0.9)
 
         Button:
             text: 'TODAS AS LISTAS'
             font_size: 26
             color: 1, 1, 0, 1
-            font_name: 'Verdana'
             size_hint: (0.0, 0.9)
 
         Button:
             text: 'VOLTAR'
             font_size: 26
-            font_name: 'Verdana'
             on_release:
                 root.manager.current = 'menu_1'
