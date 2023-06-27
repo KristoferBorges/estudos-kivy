@@ -78,7 +78,7 @@ class FecharPrograma(Screen):
 class Tela(App):
     def build(self):
         if sistema_windows:
-            Window.size = (600, 500)
+            Window.size = (379, 810)
         self.title = 'ConsultaDeMetas_v2.0'
         adm = ScreenManager()
         return adm
