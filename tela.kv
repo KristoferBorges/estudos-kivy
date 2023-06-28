@@ -94,34 +94,34 @@
         padding: 10
 
         Label:
-            text: 'NOVOS REGISTROS'
-            font_size: 26
+            text: 'REGISTROS'
+            font_size: 40
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
 
         Button:
             text: 'RD MARCAS'
-            font_size: 26
+            font_size: 35
             color: 1, 1, 0, 1
             on_release:
                 root.manager.current = 'registrosrdmarcas'
 
         Button:
             text: 'PERFUMARIA'
-            font_size: 26
+            font_size: 35
             color: 1, 1, 0, 1
             on_release:
                 root.manager.current = 'registrosperfumaria'
 
         Button:
             text: 'DERMO'
-            font_size: 26
+            font_size: 35
             color: 1, 1, 0, 1
             size_hint: (0.0, 0.9)
 
         Button:
             text: 'VOLTAR'
-            font_size: 26
+            font_size: 35
             on_release:
                 root.manager.current = 'menu_1'
 
@@ -185,21 +185,18 @@
 
         BoxLayout:
             orientation: 'horizontal'
-            Widget:
-                width: self.parent.width - (button1.width + button2.width)
 
             Button:
-                id: button1
                 text: 'VOLTAR'
                 font_size: 19
                 size_hint: (0.5, 0.2)
                 on_release:
                     root.manager.current = 'registros'
             Button:
-                id: button2
                 text: 'FINALIZAR'
                 font_size: 19
                 size_hint: (0.7, 0.2)
+
 
 <RegistrosPerfumaria>:
     BoxLayout:
@@ -260,11 +257,8 @@
 
         BoxLayout:
             orientation: 'horizontal'
-            Widget:
-                width: self.parent.width - (button1.width + button2.width)
 
             Button:
-                id: button1
                 text: 'VOLTAR'
                 font_size: 26
                 size_hint: (0.5, 0.2)
@@ -272,7 +266,6 @@
                     root.manager.current = 'registros'
 
             Button:
-                id: button2
                 text: 'FINALIZAR'
                 font_size: 26
                 size_hint: (0.7, 0.2)
