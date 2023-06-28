@@ -26,6 +26,10 @@
         id: registrosperfumaria
         name: 'registrosperfumaria'
 
+    RegistrosDermo:
+        id: registrosdermo
+        name: 'registrosdermo'
+
     LimparDados:
         id: limpardados
         name: 'limpardados'
@@ -118,6 +122,8 @@
             font_size: 35
             color: 1, 1, 0, 1
             size_hint: (0.0, 0.9)
+            on_release:
+                root.manager.current = 'registrosdermo'
 
         Button:
             text: 'VOLTAR'
@@ -146,12 +152,13 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Data (00/00/0000)'
+                text: 'Data'
 
             TextInput:
                 id: data_input
                 size_hint: (0.7, 1)
                 multiline: False
+                hint_text: "00/00/0000"
 
         BoxLayout:
             orientation: 'horizontal'
@@ -165,8 +172,9 @@
             TextInput:
                 id: meta_input
                 size_hint: (0.7, 1)
-                input_filter: 'int'
+                input_filter: 'float'
                 multiline: False
+                hint_text: "R$ 1000.00"
 
         BoxLayout:
             orientation: 'horizontal'
@@ -180,8 +188,9 @@
             TextInput:
                 id: venda_input
                 size_hint: (0.7, 1)
-                input_filter: 'int'
+                input_filter: 'float'
                 multiline: False
+                hint_text: "R$ 1000.00"
 
         BoxLayout:
             orientation: 'horizontal'
@@ -218,12 +227,13 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Data (00/00/0000)'
+                text: 'Data'
 
             TextInput:
                 id: data_input
                 size_hint: (0.7, 1)
                 multiline: False
+                hint_text: "00/00/0000"
 
         BoxLayout:
             orientation: 'horizontal'
@@ -237,8 +247,9 @@
             TextInput:
                 id: meta_input
                 size_hint: (0.7, 1)
-                input_filter: 'int'
+                input_filter: 'float'
                 multiline: False
+                hint_text: "R$ 1000.00"
 
         BoxLayout:
             orientation: 'horizontal'
@@ -252,24 +263,114 @@
             TextInput:
                 id: venda_input
                 size_hint: (0.7, 1)
-                input_filter: 'int'
+                input_filter: 'float'
                 multiline: False
+                hint_text: "R$ 1000.00"
 
         BoxLayout:
             orientation: 'horizontal'
 
             Button:
                 text: 'VOLTAR'
-                font_size: 26
+                font_size: 19
                 size_hint: (0.5, 0.2)
                 on_release:
                     root.manager.current = 'registros'
-
             Button:
                 text: 'FINALIZAR'
-                font_size: 26
+                font_size: 19
                 size_hint: (0.7, 0.2)
 
+<RegistrosDermo>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+
+        Label:
+            text: 'Preencha os campos (DERMO)'
+            font_size: 20
+            color: 1, 1, 0, 1
+            size_hint: (1, None)
+            text_size: (None, None)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Data'
+
+            TextInput:
+                id: data_input
+                size_hint: (0.7, 1)
+                multiline: False
+                hint_text: "00/00/0000"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Meta (Dia)'
+
+            TextInput:
+                id: meta_input
+                size_hint: (0.7, 1)
+                input_filter: 'float'
+                multiline: False
+                hint_text: "R$ 1000.00"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Vendas (Dia)'
+
+            TextInput:
+                id: venda_input
+                size_hint: (0.7, 1)
+                input_filter: 'float'
+                multiline: False
+                hint_text: "R$ 1000.00"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Peças (Dia)'
+
+            TextInput:
+                id: venda_input
+                size_hint: (0.7, 1)
+                input_filter: 'int'
+                multiline: False
+                hint_text: "30 Unidade(s)"
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'VOLTAR'
+                font_size: 19
+                size_hint: (0.5, 0.2)
+                on_release:
+                    root.manager.current = 'registros'
+            Button:
+                text: 'FINALIZAR'
+                font_size: 19
+                size_hint: (0.7, 0.2)
 
 # Fim das opções do Menu principal
 

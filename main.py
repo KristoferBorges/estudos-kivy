@@ -40,6 +40,12 @@ class RegistrosPerfumaria(Screen):
     pass
 
 
+class RegistrosDermo(Screen):
+    """
+    """
+    pass
+
+
 class LimparDados(Screen):
     """
     Opção para limpar dos dados, porém se faz necessário escolher as
