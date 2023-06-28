@@ -30,18 +30,21 @@ class NovosRegistros(Screen):
 
 class RegistrosRDMarcas(Screen):
     """
+    Opção do menu principal após clicar na opção de registros (RDMarcas).
     """
     pass
 
 
 class RegistrosPerfumaria(Screen):
     """
+    Opção do menu principal após clicar na opção de registros (Perfumaria).
     """
     pass
 
 
 class RegistrosDermo(Screen):
     """
+    Opção do menu principal após clicar na opção de registros (Dermo).
     """
     pass
 

@@ -90,7 +90,7 @@
                 app.stop()
 
 
-# Opções do Menu principal
+# Opções do Menu principal (REGISTROS)
 <NovosRegistros>:
     GridLayout:
         cols: 1
@@ -282,7 +282,6 @@
                 size_hint: (0.7, 0.2)
 
 <RegistrosDermo>:
-
     BoxLayout:
         orientation: 'vertical'
         spacing: 10
@@ -372,8 +371,9 @@
                 font_size: 19
                 size_hint: (0.7, 0.2)
 
-# Fim das opções do Menu principal
+# Fim das opções do Menu principal  (REGISTROS)
 
+# Opções do Menu principal (LIMPARDADOS)
 <LimparDados>:
     GridLayout:
         cols: 1
@@ -414,7 +414,9 @@
             on_release:
                 root.manager.current = 'menu_1'
 
+# Fim das opções do Menu principal  (LIMPARDADOS)
 
+# Opções do Menu principal (CONSULTARLISTAS)
 <ConsultaDeListas>:
     GridLayout:
         cols: 1
@@ -455,7 +457,9 @@
             on_release:
                 root.manager.current = 'menu_1'
 
+# Fim das opções do Menu principal  (CONSULTARLISTAS)
 
+# Opções do Menu principal (FAZERBACKUP)
 <CriarBackup>:
     GridLayout:
         cols: 1
@@ -495,3 +499,5 @@
             font_size: 26
             on_release:
                 root.manager.current = 'menu_1'
+
+# Fim das opções do Menu principal  (FAZERBACKUP)
