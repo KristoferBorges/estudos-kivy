@@ -201,10 +201,13 @@
                 size_hint: (0.5, 0.2)
                 on_release:
                     root.manager.current = 'registros'
+
             Button:
                 text: 'FINALIZAR'
                 font_size: 19
                 size_hint: (0.7, 0.2)
+                on_release:
+                    app.pega_input_rdmarcas(root.data_input.text, root.meta_input.text, root.venda_input.text)
 
 
 <RegistrosPerfumaria>:
@@ -276,10 +279,12 @@
                 size_hint: (0.5, 0.2)
                 on_release:
                     root.manager.current = 'registros'
+
             Button:
                 text: 'FINALIZAR'
                 font_size: 19
                 size_hint: (0.7, 0.2)
+
 
 <RegistrosDermo>:
     BoxLayout:

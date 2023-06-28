@@ -92,9 +92,11 @@ class Tela(App):
         adm = ScreenManager()
         return adm
 
-    def pega_input_rdmarcas(self):
+    def pega_input_rdmarcas(self, data_input, meta_input, venda_input):
         data = self.root.ids.data_input.text
-        print(data)
+        meta = self.root.ids.meta_input.text
+        vendas = self.root.ids.venda_input.text
+        return print(f"No dia {data}\nA meta era de {meta}\nFoi vendido {vendas}")
 
 
 if __name__ == '__main__':
