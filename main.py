@@ -4,6 +4,7 @@ from modulo import dateVerification
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.core.window import Window
+from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 
 # Verifica se o usuário está usando Windows
@@ -87,6 +88,7 @@ class FecharPrograma(Screen):
 
 
 class Tela(App):
+
     def build(self):
         if sistema_windows:
             Window.size = (379, 810)
@@ -103,16 +105,21 @@ class Tela(App):
         :param vendas: Valor de Venda inserida na interface
         :return: Retorna os dados devidamente formatados.
         """
-        data = str(data)
-        meta = float(meta)
-        vendas = float(vendas)
-        data = dateVerification(data)
+        try:
+            meta = float(meta)
+            vendas = float(vendas)
+            data = dateVerification(data)
 
-        if vendas > meta:
-            result = "META ATINGIDA"
-        else:
-            result = "META NÃO ATINGIDA"
-        return print(f"DATA: {data}\nMETA: {meta}\nVENDAS: {vendas}\nRESULTADO: {result}")
+            if vendas > meta:
+                result = "META ATINGIDA"
+            else:
+                result = "META NÃO ATINGIDA"
+            return print(f"DATA: {data}\nMETA: {meta}\nVENDAS: {vendas}\nRESULTADO: {result}")
+
+        except Exception as error:
+            print(error)
+            error_text = True
+            return error_text
 
 
 if __name__ == '__main__':

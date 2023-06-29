@@ -25,7 +25,7 @@ def dateVerification(data):
     if len(data) == 0:
         data = datetime.datetime.now()
         data = datetime.datetime.date(data)
-        data = data.strftime("%d-%m-%Y")
+        data = data.strftime("%d/%m/%Y")
         data_soma = int(data[:2])
         data_soma = data_soma - 1
         data_soma = str(data_soma)
@@ -34,6 +34,9 @@ def dateVerification(data):
         data = str(data_soma) + data[2:]
         return data
         # Data de ontem formatada
+    else:
+        data = str(data)
+        return data
 
 
 def tryOption(option):
