@@ -1,8 +1,10 @@
+import datetime
+import platform
+from modulo import dateVerification
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.core.window import Window
 from kivy.uix.textinput import TextInput
-import platform
 
 # Verifica se o usuário está usando Windows
 if platform.system() == "Windows":
@@ -92,11 +94,25 @@ class Tela(App):
         adm = ScreenManager()
         return adm
 
-    def pega_input_rdmarcas(self, data_input, meta_input, venda_input):
-        data = self.root.ids.data_input.text
-        meta = self.root.ids.meta_input.text
-        vendas = self.root.ids.venda_input.text
-        return print(f"No dia {data}\nA meta era de {meta}\nFoi vendido {vendas}")
+    @staticmethod
+    def pega_input_rdmarcas(data, meta, vendas):
+        """
+        --> Função para pegar os dados inseridos na opção 'REGISTROS' -> 'RDMARCAS'.
+        :param data: Valor de Data inserida na interface
+        :param meta: Valor de Meta inserida na interface
+        :param vendas: Valor de Venda inserida na interface
+        :return: Retorna os dados devidamente formatados.
+        """
+        data = str(data)
+        meta = float(meta)
+        vendas = float(vendas)
+        data = dateVerification(data)
+
+        if vendas > meta:
+            result = "META ATINGIDA"
+        else:
+            result = "META NÃO ATINGIDA"
+        return print(f"DATA: {data}\nMETA: {meta}\nVENDAS: {vendas}\nRESULTADO: {result}")
 
 
 if __name__ == '__main__':
