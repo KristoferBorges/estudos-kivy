@@ -7,6 +7,7 @@ from kivy.core.window import Window
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 
+
 # Verifica se o usuário está usando Windows
 if platform.system() == "Windows":
     sistema_windows = True
@@ -35,7 +36,15 @@ class RegistrosRDMarcas(Screen):
     """
     Opção do menu principal após clicar na opção de registros (RDMarcas).
     """
-    pass
+
+    label_aviso = Label(text='Campos não preenchidos')
+
+    def __init__(self, **kwargs):
+        super(RegistrosRDMarcas, self).__init__(**kwargs)
+        self.exibir = False
+        if self.exibir:
+            self.add_widget(self.label_aviso)
+            print('on')
 
 
 class RegistrosPerfumaria(Screen):
@@ -105,12 +114,12 @@ class Tela(App):
         :param vendas: Valor de Venda inserida na interface
         :return: Retorna os dados devidamente formatados.
         """
+        registros_rdmarcas = RegistrosRDMarcas()
         try:
             meta = float(meta)
             vendas = float(vendas)
             data = dateVerification(data)
-
-            if vendas > meta:
+            if vendas >= meta:
                 result = "META ATINGIDA"
             else:
                 result = "META NÃO ATINGIDA"
@@ -118,8 +127,10 @@ class Tela(App):
 
         except Exception as error:
             print(error)
-            error_text = True
-            return error_text
+            registros_rdmarcas.exibir = True
+            registros_rdmarcas.clear_widgets()
+            registros_rdmarcas.add_widget(registros_rdmarcas.label_aviso)
+            return registros_rdmarcas
 
 
 if __name__ == '__main__':
