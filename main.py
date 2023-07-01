@@ -67,9 +67,9 @@ class RegistrosPerfumaria(Screen):
     """
 
     def avisoInput(self):
-        data_input = self.data_input.text
-        meta_input = self.data_input.text
-        venda_input = self.venda_input.text
+        data_input = self.ids.data_input.text
+        meta_input = self.ids.data_input.text
+        venda_input = self.ids.venda_input.text
 
         data_input = str(data_input)
         meta_input = str(meta_input)
@@ -84,14 +84,36 @@ class RegistrosPerfumaria(Screen):
             content.add_widget(close_button)
 
             popup = Popup(title='Aviso', content=content, size_hint=(None, None), size=(400, 200))
-            close_button.bind()
+            close_button.bind(on_release=popup.dismiss)
+            popup.open()
 
 
 class RegistrosDermo(Screen):
     """
     Opção do menu principal após clicar na opção de registros (Dermo).
     """
-    pass
+    def avisoInput(self):
+        data_input = self.ids.data_input.text
+        meta_input = self.ids.data_input.text
+        venda_input = self.ids.venda_input.text
+        peca_input = self.ids.peca_input.text
+
+        data_input = str(data_input)
+        meta_input = str(meta_input)
+        venda_input = str(venda_input)
+        peca_input = str(peca_input)
+
+        if data_input == '' or meta_input == '' or venda_input == '' or peca_input == '':
+            content = BoxLayout(orientation='vertical', padding=10)
+            label = Label(text='Campos não preenchidos!')
+            close_button = Button(text='Fechar', size_hint=(None, None), size=(100, 50))
+
+            content.add_widget(label)
+            content.add_widget(close_button)
+
+            popup = Popup(title='Aviso', content=content, size_hint=(None, None), size=(400, 200))
+            close_button.bind(on_release=popup.dismiss)
+            popup.open()
 
 
 class LimparDados(Screen):

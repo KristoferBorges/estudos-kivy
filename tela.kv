@@ -284,7 +284,8 @@
                 text: 'FINALIZAR'
                 font_size: 19
                 size_hint: (0.7, 0.2)
-
+                on_release:
+                    root.avisoInput()
 
 <RegistrosDermo>:
     BoxLayout:
@@ -356,7 +357,7 @@
                 text: 'Peças (Dia)'
 
             TextInput:
-                id: venda_input
+                id: peca_input
                 size_hint: (0.7, 1)
                 input_filter: 'int'
                 multiline: False
@@ -375,6 +376,9 @@
                 text: 'FINALIZAR'
                 font_size: 19
                 size_hint: (0.7, 0.2)
+                on_release:
+                    root.avisoInput()
+
 
 # Fim das opções do Menu principal  (REGISTROS)
 
