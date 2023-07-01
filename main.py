@@ -4,8 +4,10 @@ from modulo import dateVerification
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.core.window import Window
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.popup import Popup
+from kivy.uix.button import Button
 from kivy.uix.label import Label
-from kivy.uix.textinput import TextInput
 
 
 # Verifica se o usuário está usando Windows
@@ -37,21 +39,52 @@ class RegistrosRDMarcas(Screen):
     Opção do menu principal após clicar na opção de registros (RDMarcas).
     """
 
-    label_aviso = Label(text='Campos não preenchidos')
+    def avisoInput(self):
+        data_input = self.ids.data_input.text
+        meta_input = self.ids.meta_input.text
+        venda_input = self.ids.venda_input.text
 
-    def __init__(self, **kwargs):
-        super(RegistrosRDMarcas, self).__init__(**kwargs)
-        self.exibir = False
-        if self.exibir:
-            self.add_widget(self.label_aviso)
-            print('on')
+        data_input = str(data_input)
+        meta_input = str(meta_input)
+        venda_input = str(venda_input)
+
+        if data_input == '' or meta_input == '' or venda_input == '':
+            content = BoxLayout(orientation='vertical', padding=10)
+            label = Label(text='Campos não preenchidos!')
+            close_button = Button(text='Fechar', size_hint=(None, None), size=(100, 50))
+
+            content.add_widget(label)
+            content.add_widget(close_button)
+
+            popup = Popup(title='Aviso', content=content, size_hint=(None, None), size=(400, 200))
+            close_button.bind(on_release=popup.dismiss)
+            popup.open()
 
 
 class RegistrosPerfumaria(Screen):
     """
     Opção do menu principal após clicar na opção de registros (Perfumaria).
     """
-    pass
+
+    def avisoInput(self):
+        data_input = self.data_input.text
+        meta_input = self.data_input.text
+        venda_input = self.venda_input.text
+
+        data_input = str(data_input)
+        meta_input = str(meta_input)
+        venda_input = str(venda_input)
+
+        if data_input == '' or meta_input == '' or venda_input == '':
+            content = BoxLayout(orientation='vertical', padding=10)
+            label = Label(text='Campos não preenchidos!')
+            close_button = Button(text='Fechar', size_hint=(None, None), size=(100, 50))
+
+            content.add_widget(label)
+            content.add_widget(close_button)
+
+            popup = Popup(title='Aviso', content=content, size_hint=(None, None), size=(400, 200))
+            close_button.bind()
 
 
 class RegistrosDermo(Screen):
@@ -114,7 +147,6 @@ class Tela(App):
         :param vendas: Valor de Venda inserida na interface
         :return: Retorna os dados devidamente formatados.
         """
-        registros_rdmarcas = RegistrosRDMarcas()
         try:
             meta = float(meta)
             vendas = float(vendas)
@@ -127,10 +159,6 @@ class Tela(App):
 
         except Exception as error:
             print(error)
-            registros_rdmarcas.exibir = True
-            registros_rdmarcas.clear_widgets()
-            registros_rdmarcas.add_widget(registros_rdmarcas.label_aviso)
-            return registros_rdmarcas
 
 
 if __name__ == '__main__':
