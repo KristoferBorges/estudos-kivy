@@ -1,7 +1,8 @@
-#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+
 
 <Button>:
-    font_size:
     border: (2, 2, 2, 2)
     border_width: 2
     border_color: 1, 0, 0, 1
@@ -9,7 +10,7 @@
 
 
 <ScreenManager>:
-    transition: FadeTransition()
+    transition: NoTransition()
     MenuPrincipal:
         id: menu_1
         name: 'menu_1'
@@ -34,9 +35,37 @@
         id: limpardados
         name: 'limpardados'
 
+    LimparRD:
+        id: limparrd
+        name: 'limparrd'
+
+    LimparPerfumaria:
+        id: limparperfumaria
+        name: 'limparperfumaria'
+
+    LimparDermo:
+        id: limpardermo
+        name: 'limpardermo'
+
+    LimparTodasAsListas
+        id: limpartodasaslistas
+        name: 'limpartodasaslistas'
+
     ConsultaDeListas:
         id: consultarlistas
         name: 'consultarlistas'
+
+    ConsultaRDMarcas:
+        id: consultardmarcas
+        name: 'consultardmarcas'
+
+    ConsultaPerfumaria:
+        id: consultaperfumaria
+        name: 'consultaperfumaria'
+
+    ConsultaDermo:
+        id: consultadermo
+        name: 'consultadermo'
 
     CriarBackup:
         id: criarbackup
@@ -55,38 +84,43 @@
 
         Button:
             text: 'NOVOS REGISTROS'
-            font_size: 35
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             on_release:
+                root.pressButton()
                 root.manager.current = 'registros'
 
         Button:
-            text: 'LIMPAR DADOS'
-            font_size: 35
+            text: 'EDITAR | LIMPAR'
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             on_release:
+                root.pressButton()
                 root.manager.current = 'limpardados'
 
         Button:
             text: 'CONSULTAR LISTAS'
-            font_size: 35
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             on_release:
+                root.pressButton()
                 root.manager.current = 'consultarlistas'
 
         Button:
             text: 'CRIAR BACKUP'
-            font_size: 35
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             on_release:
+                root.pressButton()
                 root.manager.current = 'criarbackup'
 
         Button:
             text: 'SAIR'
-            font_size: 35
+            font_size: root.font_text_menu
             color: 1, 0, 0, 1
             size_hint: (0.0, 0.9)
             on_release:
+                root.pressButton()
                 app.stop()
 
 
@@ -99,36 +133,40 @@
 
         Label:
             text: 'REGISTROS'
-            font_size: 40
+            font_size: root.font_text_menu
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
 
         Button:
             text: 'RD MARCAS'
-            font_size: 35
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             on_release:
+                root.pressButton()
                 root.manager.current = 'registrosrdmarcas'
 
         Button:
             text: 'PERFUMARIA'
-            font_size: 35
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             on_release:
+                root.pressButton()
                 root.manager.current = 'registrosperfumaria'
 
         Button:
             text: 'DERMO'
-            font_size: 35
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             size_hint: (0.0, 0.9)
             on_release:
+                root.pressButton()
                 root.manager.current = 'registrosdermo'
 
         Button:
             text: 'VOLTAR'
-            font_size: 35
+            font_size: root.font_text_menu
             on_release:
+                root.pressBackButton()
                 root.manager.current = 'menu_1'
 
 
@@ -140,7 +178,7 @@
 
         Label:
             text: 'Preencha os campos (RD-MARCAS)'
-            font_size: 20
+            font_size: root.font_text
             color: 1, 1, 0, 1
             size_hint: (1, None)
             text_size: (None, None)
@@ -167,7 +205,7 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Meta (Dia)'
+                text: 'Meta* (Dia)'
 
             TextInput:
                 id: meta_input
@@ -183,7 +221,7 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Vendas (Dia)'
+                text: 'Vendas* (Dia)'
 
             TextInput:
                 id: venda_input
@@ -197,18 +235,19 @@
 
             Button:
                 text: 'VOLTAR'
-                font_size: 19
+                font_size: root.font_button
                 size_hint: (0.5, 0.2)
                 on_release:
+                    root.pressBackButton()
                     root.manager.current = 'registros'
 
             Button:
                 text: 'FINALIZAR'
-                font_size: 19
+                font_size: root.font_button
                 size_hint: (0.7, 0.2)
                 on_release:
-                    root.avisoInput()
-                    app.pega_input_rdmarcas(data_input.text, meta_input.text, venda_input.text)
+                    root.pressButton()
+                    root.pega_input_rdmarcas()
 
 
 <RegistrosPerfumaria>:
@@ -219,7 +258,7 @@
 
         Label:
             text: 'Preencha os campos (PERFUMARIA)'
-            font_size: 20
+            font_size: root.font_text
             color: 1, 1, 0, 1
             size_hint: (1, None)
             text_size: (None, None)
@@ -246,7 +285,7 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Meta (Dia)'
+                text: 'Meta* (Dia)'
 
             TextInput:
                 id: meta_input
@@ -262,7 +301,7 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Vendas (Dia)'
+                text: 'Vendas* (Dia)'
 
             TextInput:
                 id: venda_input
@@ -276,17 +315,19 @@
 
             Button:
                 text: 'VOLTAR'
-                font_size: 19
+                font_size: root.font_button
                 size_hint: (0.5, 0.2)
                 on_release:
+                    root.pressBackButton()
                     root.manager.current = 'registros'
 
             Button:
                 text: 'FINALIZAR'
-                font_size: 19
+                font_size: root.font_button
                 size_hint: (0.7, 0.2)
                 on_release:
-                    root.avisoInput()
+                    root.pressButton()
+                    root.pega_input_perfumaria()
 
 
 <RegistrosDermo>:
@@ -297,7 +338,7 @@
 
         Label:
             text: 'Preencha os campos (DERMO)'
-            font_size: 20
+            font_size: root.font_text
             color: 1, 1, 0, 1
             size_hint: (1, None)
             text_size: (None, None)
@@ -324,7 +365,7 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Meta (Dia)'
+                text: 'Meta* (Dia)'
 
             TextInput:
                 id: meta_input
@@ -340,7 +381,7 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Vendas (Dia)'
+                text: 'Vendas* (Dia)'
 
             TextInput:
                 id: venda_input
@@ -356,7 +397,7 @@
 
             Label:
                 size_hint: (0.3, 1)
-                text: 'Peças (Dia)'
+                text: 'Peças* (Dia)'
 
             TextInput:
                 id: peca_input
@@ -370,16 +411,19 @@
 
             Button:
                 text: 'VOLTAR'
-                font_size: 19
+                font_size: root.font_button
                 size_hint: (0.5, 0.2)
                 on_release:
+                    root.pressBackButton()
                     root.manager.current = 'registros'
+
             Button:
                 text: 'FINALIZAR'
-                font_size: 19
+                font_size: root.font_button
                 size_hint: (0.7, 0.2)
                 on_release:
-                    root.avisoInput()
+                    root.pressButton()
+                    root.pega_input_dermo()
 
 
 # Fim das opções do Menu principal  (REGISTROS)
@@ -392,38 +436,567 @@
         padding: 10
 
         Label:
-            text: 'LIMPAR LISTAS'
-            font_size: 26
+            text: 'EDITAR | LIMPAR'
+            font_size: root.font_text_menu
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
 
         Button:
             text: 'RD MARCAS'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.manager.current = 'limparrd'
 
         Button:
             text: 'PERFUMARIA'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.manager.current = 'limparperfumaria'
 
         Button:
             text: 'DERMO'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             size_hint: (0.0, 0.9)
+            on_release:
+                root.pressButton()
+                root.manager.current = 'limpardermo'
 
         Button:
-            text: 'TODAS AS LISTAS'
-            font_size: 26
-            color: 1, 1, 0, 1
+            text: 'DELETAR LISTAS'
+            font_size: root.font_text_menu
+            color: 1, 0, 0, 1
             size_hint: (0.0, 0.9)
+            on_release:
+                root.pressButton()
+                root.apagarLista_popup()
 
         Button:
             text: 'VOLTAR'
-            font_size: 26
+            font_size: root.font_text_menu
             on_release:
+                root.pressBackButton()
                 root.manager.current = 'menu_1'
+
+
+<LimparRD>
+    GridLayout:
+        cols: 1
+        spacing: 6
+        padding: 10
+
+        Label:
+            text: 'RD Marcas'
+            font_size: root.font_title
+            color: 1, 1, 0, 1
+            size_hint: (1, None)
+            text_size: (None, None)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Pesquisar'
+
+            TextInput:
+                id: research_input
+                size_hint: (0.7, 1)
+                multiline: False
+                hint_text: "00/00/0000"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '90dp'
+
+            Label:
+                id: busca_resultado
+                size_hint: (0.3, 1)
+                color: 1, 1, 0, 1
+                font_size: root.font_row
+                text: ''
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '20dp'
+
+            Label:
+                id: resultado_linha
+                size_hint: (0.3, 1)
+                font_size: root.font_row
+                text: ''
+
+
+
+        BoxLayout: # Pequeno espaço
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '20dp'
+
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Data'
+
+            TextInput:
+                id: data_input
+                size_hint: (0.7, 1)
+                multiline: False
+                hint_text: "00/00/0000"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Meta* (Dia)'
+
+            TextInput:
+                id: meta_input
+                size_hint: (0.7, 1)
+                input_filter: 'float'
+                multiline: False
+                hint_text: "R$ 1000.00"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Vendas* (Dia)'
+
+            TextInput:
+                id: venda_input
+                size_hint: (0.7, 1)
+                input_filter: 'float'
+                multiline: False
+                hint_text: "R$ 1000.00"
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'BUSCAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressButton()
+                    root.buscarPesquisa()
+
+            Button:
+                text: 'ALTERAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressButton()
+                    root.executarAlteracao()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '90dp'
+
+            Label:
+                id: finalizar_alteracao
+                size_hint: (0.3, 1)
+                color: 1, 1, 0, 1
+                font_size: root.font_row
+                text: ''
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'APAGAR LISTA'
+                font_size: root.font_button
+                size_hint: (1, None)
+                height: '50dp'
+                color: 1, 0, 0, 1
+                pos_hint: {'center_x': 0.5, 'y': -0.6}
+                on_release:
+                    root.pressButton()
+                    root.apagarLista_popup_RDMarcas()
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'VOLTAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressBackButton()
+                    root.manager.current = 'limpardados'
+
+
+<LimparPerfumaria>
+    GridLayout:
+        cols: 1
+        spacing: 6
+        padding: 10
+
+        Label:
+            text: 'Perfumaria'
+            font_size: root.font_title
+            color: 1, 1, 0, 1
+            size_hint: (1, None)
+            text_size: (None, None)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Pesquisar'
+
+            TextInput:
+                id: research_input
+                size_hint: (0.7, 1)
+                multiline: False
+                hint_text: "00/00/0000"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '90dp'
+
+            Label:
+                id: busca_resultado
+                size_hint: (0.3, 1)
+                color: 1, 1, 0, 1
+                font_size: root.font_row
+                text: ''
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '20dp'
+
+            Label:
+                id: resultado_linha
+                size_hint: (0.3, 1)
+                font_size: root.font_row
+                text: ''
+
+
+
+        BoxLayout: # Pequeno espaço
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '20dp'
+
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Data'
+
+            TextInput:
+                id: data_input
+                size_hint: (0.7, 1)
+                multiline: False
+                hint_text: "00/00/0000"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Meta* (Dia)'
+
+            TextInput:
+                id: meta_input
+                size_hint: (0.7, 1)
+                input_filter: 'float'
+                multiline: False
+                hint_text: "R$ 1000.00"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Vendas* (Dia)'
+
+            TextInput:
+                id: venda_input
+                size_hint: (0.7, 1)
+                input_filter: 'float'
+                multiline: False
+                hint_text: "R$ 1000.00"
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'BUSCAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressButton()
+                    root.buscarPesquisa()
+
+            Button:
+                text: 'ALTERAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressButton()
+                    root.executarAlteracao()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '90dp'
+
+            Label:
+                id: finalizar_alteracao
+                size_hint: (0.3, 1)
+                color: 1, 1, 0, 1
+                font_size: root.font_row
+                text: ''
+
+        RelativeLayout:
+
+            Button:
+                text: 'APAGAR LISTA'
+                font_size: root.font_button
+                size_hint: (1, None)
+                height: '50dp'
+                color: 1, 0, 0, 1
+                pos_hint: {'center_x': 0.5, 'y': -0.6}
+                on_release:
+                    root.pressButton()
+                    root.apagarLista_popup_Perfumaria()
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'VOLTAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressBackButton()
+                    root.manager.current = 'limpardados'
+
+
+<LimparDermo>
+    GridLayout:
+        cols: 1
+        spacing: 6
+        padding: 10
+
+        Label:
+            text: 'Dermo'
+            font_size: root.font_title
+            color: 1, 1, 0, 1
+            size_hint: (1, None)
+            text_size: (None, None)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Pesquisar'
+
+            TextInput:
+                id: research_input
+                size_hint: (0.7, 1)
+                multiline: False
+                hint_text: "00/00/0000"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '90dp'
+
+            Label:
+                id: busca_resultado
+                size_hint: (0.3, 1)
+                color: 1, 1, 0, 1
+                font_size: root.font_row
+                text: ''
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '20dp'
+
+            Label:
+                id: resultado_linha
+                size_hint: (0.3, 1)
+                font_size: root.font_row
+                text: ''
+
+
+
+        BoxLayout: # Pequeno espaço
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '20dp'
+
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Data'
+
+            TextInput:
+                id: data_input
+                size_hint: (0.7, 1)
+                multiline: False
+                hint_text: "00/00/0000"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Meta* (Dia)'
+
+            TextInput:
+                id: meta_input
+                size_hint: (0.7, 1)
+                input_filter: 'float'
+                multiline: False
+                hint_text: "R$ 1000.00"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Vendas* (Dia)'
+
+            TextInput:
+                id: venda_input
+                size_hint: (0.7, 1)
+                input_filter: 'float'
+                multiline: False
+                hint_text: "R$ 1000.00"
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '30dp'
+
+            Label:
+                size_hint: (0.3, 1)
+                text: 'Peças* (Dia)'
+
+            TextInput:
+                id: peca_input
+                size_hint: (0.7, 1)
+                input_filter: 'int'
+                multiline: False
+                hint_text: "30 Unidade(s)"
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'BUSCAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressButton()
+                    root.buscarPesquisa()
+
+            Button:
+                text: 'ALTERAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressButton()
+                    root.executarAlteracao()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: '90dp'
+
+            Label:
+                id: finalizar_alteracao
+                size_hint: (0.3, 1)
+                color: 1, 1, 0, 1
+                font_size: root.font_row
+                text: ''
+
+        RelativeLayout:
+
+            Button:
+                text: 'APAGAR LISTA'
+                font_size: root.font_button
+                size_hint: (1, None)
+                height: '50dp'
+                color: 1, 0, 0, 1
+                pos_hint: {'center_x': 0.5, 'y': -0.6}
+                on_release:
+                    root.pressButton()
+                    root.apagarLista_popup_Dermo()
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'VOLTAR'
+                font_size: root.font_button
+                size_hint: (0.5, 0.4)
+                height: '50dp'
+                on_release:
+                    root.pressBackButton()
+                    root.manager.current = 'limpardados'
+
 
 # Fim das opções do Menu principal  (LIMPARDADOS)
 
@@ -436,37 +1009,159 @@
 
         Label:
             text: 'CONSULTAR LISTAS'
-            font_size: 26
+            font_size: root.font_text_menu
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
 
         Button:
             text: 'RD MARCAS'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.manager.current = 'consultardmarcas'
 
         Button:
             text: 'PERFUMARIA'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.manager.current = 'consultaperfumaria'
 
         Button:
             text: 'DERMO'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             size_hint: (0.0, 0.9)
-
-        Button:
-            text: 'TODAS AS LISTAS'
-            font_size: 26
-            color: 1, 1, 0, 1
-            size_hint: (0.0, 0.9)
+            on_release:
+                root.pressButton()
+                root.manager.current = 'consultadermo'
 
         Button:
             text: 'VOLTAR'
-            font_size: 26
+            font_size: root.font_text_menu
             on_release:
+                root.pressBackButton()
                 root.manager.current = 'menu_1'
+
+
+
+<ConsultaRDMarcas>
+    GridLayout:
+        cols: 1
+        spacing: 6
+        padding: 10
+
+        Label:
+            text: '( VIRE À TELA )'
+            font_size: root.font_text_menu
+            orientation: 'horizontal'
+            size_hint: (0.4, 0.4)
+
+        Button:
+            text: 'MOSTRAR LISTA'
+            font_size: root.font_button
+            size_hint: (0.5, 0.5)
+            on_release:
+                root.pressButton()
+                root.mostrarLista()
+
+        Button:
+            text: 'EDITAR'
+            font_size: root.font_button
+            size_hint: (0.3, 0.3)
+            color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.manager.current = 'limparrd'
+
+        Button:
+            text: 'VOLTAR'
+            font_size: root.font_button
+            size_hint: (0.3, 0.3)
+            height: '50dp'
+            on_release:
+                root.pressBackButton()
+                root.manager.current = 'consultarlistas'
+
+
+<ConsultaPerfumaria>
+    GridLayout:
+        cols: 1
+        spacing: 6
+        padding: 10
+
+        Label:
+            text: '( VIRE À TELA )'
+            font_size: root.font_text_menu
+            orientation: 'horizontal'
+            size_hint: (0.4, 0.4)
+
+        Button:
+            text: 'MOSTRAR LISTA'
+            font_size: root.font_button
+            size_hint: (0.5, 0.5)
+            on_release:
+                root.pressButton()
+                root.mostrarLista()
+
+        Button:
+            text: 'EDITAR'
+            font_size: root.font_button
+            size_hint: (0.3, 0.3)
+            color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.manager.current = 'limparperfumaria'
+
+        Button:
+            text: 'VOLTAR'
+            font_size: root.font_button
+            size_hint: (0.3, 0.3)
+            height: '50dp'
+            on_release:
+                root.pressBackButton()
+                root.manager.current = 'consultarlistas'
+
+<ConsultaDermo>
+    GridLayout:
+        cols: 1
+        spacing: 6
+        padding: 10
+
+        Label:
+            text: '( VIRE À TELA )'
+            font_size: root.font_text_menu
+            orientation: 'horizontal'
+            size_hint: (0.4, 0.4)
+
+        Button:
+            text: 'MOSTRAR LISTA'
+            font_size: root.font_button
+            size_hint: (0.5, 0.5)
+            on_release:
+                root.pressButton()
+                root.mostrarLista()
+
+        Button:
+            text: 'EDITAR'
+            font_size: root.font_button
+            size_hint: (0.3, 0.3)
+            color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.manager.current = 'limpardermo'
+
+        Button:
+            text: 'VOLTAR'
+            font_size: root.font_button
+            size_hint: (0.3, 0.3)
+            height: '50dp'
+            on_release:
+                root.pressBackButton()
+                root.manager.current = 'consultarlistas'
+
 
 # Fim das opções do Menu principal  (CONSULTARLISTAS)
 
@@ -479,36 +1174,53 @@
 
         Label:
             text: 'CRIAR BACKUP'
-            font_size: 26
+            font_size: root.font_text_menu
             orientation: 'horizontal'
             size_hint: (0.5, 0.5)
 
         Button:
+            id: rdmarcas
             text: 'RD MARCAS'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.fazerBackup_popup(self.text)
 
         Button:
+            id: perfumaria
             text: 'PERFUMARIA'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
+            on_release:
+                root.pressButton()
+                root.fazerBackup_popup(self.text)
 
         Button:
+            id: dermo
             text: 'DERMO'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             size_hint: (0.0, 0.9)
+            on_release:
+                root.pressButton()
+                root.fazerBackup_popup(self.text)
 
         Button:
+            id: todas_listas
             text: 'TODAS AS LISTAS'
-            font_size: 26
+            font_size: root.font_text_menu
             color: 1, 1, 0, 1
             size_hint: (0.0, 0.9)
+            on_release:
+                root.pressButton()
+                root.fazerBackup_popup(self.text)
 
         Button:
             text: 'VOLTAR'
-            font_size: 26
+            font_size: root.font_text_menu
             on_release:
+                root.pressBackButton()
                 root.manager.current = 'menu_1'
 
 # Fim das opções do Menu principal  (FAZERBACKUP)
